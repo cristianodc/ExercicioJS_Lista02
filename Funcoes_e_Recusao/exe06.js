@@ -3,36 +3,27 @@
  *  retornando resultados instantâneos em repetidas invocações
  */
 
-function memoize(fn) {
-  const cache = {};
-  return function(...args) {
-    const key = JSON.stringify(args); 
-    if (cache[key]) {
-     
-      return cache[key];
-    } else {
-     
-      const result = fn(...args);
-      cache[key] = result;
-      return result;
-    }
+function fibonacciMemoization(n) {
+  const memo = [0, 1]; // {1}
+  const fibonacci = (n) => {
+    if (memo[n] != null) return memo[n]; // {2}
+    memo[n] = fibonacci(n - 1,memo) + fibonacci(n - 2,memo); // {3}
+    
+    return memo[n];
+   
   };
+   return fibonacci(n); // 
+}
+function fibonacci(n){
+if (n < 1) return 0; // {1}
+if (n <= 2) return 1; // {2}
+return fibonacci(n - 1) + fibonacci(n - 2); // {3}
 }
 
-function fibo(n){
-    if(n <=1) return 1
-    return fibo(n - 1) + fibo(n - 2)
-}
 
-const fiboRapido = memoize(fibo)
-
-console.time('fibo')
-console.log(fibo(40))
-console.timeEnd('fibo')
-
-
-console.time('fiboRapido')
-console.log(fiboRapido(40))
-console.timeEnd('fiboRapido')
-
-
+// console.time('fibonacciMemoization')
+// console.log(fibonacciMemoization(10));
+// console.timeEnd('fibonacciMemoization')
+console.time('fibonacci')
+console.log(fibonacci(10));
+console.timeEnd('fibonacci')
