@@ -3,7 +3,7 @@
  *  retornando resultados instantâneos em repetidas invocações
  */
 
-function fibonacciMemoization(n) {
+function memoize(n) {
   const memo = [0, 1]; // {1}
   const fibonacci = (n) => {
     if (memo[n] != null) return memo[n]; // {2}
@@ -21,9 +21,9 @@ return fibonacci(n - 1) + fibonacci(n - 2); // {3}
 }
 
 
-// console.time('fibonacciMemoization')
-// console.log(fibonacciMemoization(10));
-// console.timeEnd('fibonacciMemoization')
+// console.time('memoize')
+// console.log(memoize(10));
+// console.timeEnd('memoize')
 console.time('fibonacci')
 console.log(fibonacci(10));
 console.timeEnd('fibonacci')
