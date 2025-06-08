@@ -20,13 +20,18 @@ const produtos = [
  */
 function listaOrdenada(arr){
 
-  return arr.slice().sort((a , b)=> b.preco - a.preco)
+  let nomes  = arr.slice()
+
+   nomes.sort((a , b)=> b.preco - a.preco)
+
+   let listaOrdenada = nomes.map(function(nomes){return nomes.nome })
+   return listaOrdenada
 }
 
-let retornaMap = produtos.map(function name(produto){
-  return produto.nome
-})
+// let retornaMap = produtos.map(function name(produto){
+//   return produto.nome
+// })
 
 //console.log(listaOrdenada(produtos))
 
-console.log(retornaMap)
+console.log(listaOrdenada(produtos))
