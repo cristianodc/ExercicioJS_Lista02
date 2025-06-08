@@ -14,15 +14,19 @@ const produtos = [
 /**
  * 
  * @param {*} arr array de objetos
- * @returns       array  de nomes
- * Recebe um array de objetos ordena pelo preço e 
- * retorna um array de nomes
+ * @returns       array  ordenados
+ * Recebe um array de objetos ordena pelo preço 
+ * 
  */
 function listaOrdenada(arr){
-    return arr 
-        .sort((a, b)=> b.preco - a.preco).map((arr)=> arr.nome)
+
+  return arr.slice().sort((a , b)=> b.preco - a.preco)
 }
 
-const arrNome = listaOrdenada(produtos)
+let retornaMap = produtos.map(function name(produto){
+  return produto.nome
+})
 
-console.log(arrNomeome)
+//console.log(listaOrdenada(produtos))
+
+console.log(retornaMap)
